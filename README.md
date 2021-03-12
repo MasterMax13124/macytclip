@@ -1,28 +1,11 @@
 # macytclip
 Download videos from the internet with this handy macOS menu bar app!
 
-## How to set it up:
-macytclip is written in python and depends on some python libraries. Fortunately these dependencies can be easily installed using pip. Open a terminal and issue the following commands:
+## Installation:
+There are two ways to install macytclip. The easiest option is to head over to the [Releases](https://github.com/MasterMax13124/macytclip/releases) and simply download the latest version. Then unzip the file you downloaded and copy the included macytclip.app file to your Mac's Applications folder. Then launch it and enjoy!
 
-```
-pip install py2app klaxon clipboard rumps youtube-dl
-```
-
-Let the installation finish. Next we will download this repository and enter it with:
-
-```
-git clone https://github.com/MasterMax13124/macytclip/
-cd macytclip
-```
-
-Inside we need to run:
-
-```
-python3 setup.py py2app
-```
-
-Once finished, you will see multiple new folders. Open the folder 'dist' and inside you will find the compiled .app file. You can delete the new folders afterwards, if you want.
+Alternatively you can compile the .app file from the source code. To do this you need to download this repository. Then navigate into the folder and execute the start.sh script. The script will set up a virtual environment for you and download all the required libraries. It will then compile the app for you. Once it's done you can find the app file in the same folder as start.sh.
 
 ## Usage:
 
-Currently usage is very limited. Simply copy a link to a youtube video, or any other video source that youtube-dl can download, and then click on the macytclip icon in your menu bar. Click 'Download' and your download will start. Once it's done, you can find your downloaded video file in finder in your Downloads folder.
+Currently usage is very limited. First you need to start the app and make sure that the menu icon appears. Then simply copy a link to a youtube video, or any other video source that youtube-dl can download, and then click on the macytclip icon in your menu bar. Click 'Download' and your download will start. Once it's done, you can find your downloaded video file in finder in your Downloads folder.
