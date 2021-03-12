@@ -2,5 +2,5 @@
 
 python3 -m venv macytclip
 source macytclip/bin/activate
-pip install pyperclip numpy py2app klaxon clipboard rumps youtube-dl
+pip install py2app klaxon clipboard rumps youtube-dl
 python3 setup.py py2app
