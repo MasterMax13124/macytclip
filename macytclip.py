@@ -20,31 +20,44 @@ class macytclipapp():
         
     def download_h264_function(self, sender):
         klaxon("Download started", "macytclip", "")
-        ydl_opts = {'format' : 'bestvideo+bestaudio[ext=m4a]/best','outtmpl': 'video','writeinfojson': 'true', 'merge_output_format': 'mp4', 'nocheckcertificate': 'true'}
+        ydl_opts = {'format' : 'bestvideo+bestaudio[ext=m4a]/best','outtmpl': 'macytclipvideo','writeinfojson': 'true', 'merge_output_format': 'mp4', 'nocheckcertificate': 'true'}
         try:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([clipboard.paste()])
-            with open('video.info.json') as json_file: 
+
+            with open('macytclipvideo.info.json') as json_file: 
                 data = json.load(json_file) 
-                os.rename("video.mp4", data["fulltitle"] + ".mp4")
-            os.remove("video.info.json")
-            klaxon("Download complete!", "macytclip", "Check your Downloads folder!")
+                os.rename("macytclipvideo.mp4", data["fulltitle"] + ".mp4")
+
+            os.remove("macytclipvideo.info.json")
+
+            klaxon("Check your Downloads folder!", "macytclip", "Download completed successfully")
+
         except:
             klaxon("The copied text was not a valid url!", "macytclip")
     
     def download_dnxhr25fps_function(self, sender):
         klaxon("Download started", "macytclip", "")
-        ydl_opts = {'format': 'bestvideo+bestaudio', 'no-check-certificate': 'true'}
+        ydl_opts = {'format': 'bestvideo+bestaudio', 'outtmpl': 'macytclipvideo', 'writeinfojson': 'true', 'no-check-certificate': 'true'}
         try:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([clipboard.paste()])
-            #, 'exec': 'ffmpeg -i {} -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le {}.mov & del {}'
+
             #ffmpeg -i video.mp4 -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le video.mov && rm video.mp4
-            klaxon("Download complete!", "macytclip", "Check your Downloads folder!")
+            os.system("ffmpeg -i macytclipvideo.mp4 -c:v dnxhd -profile:v dnxhr_hq -vf fps=25/1,format=yuv422p -c:a pcm_s16le macytclipvideo.mov && rm macytclipvideo.mp4")
+
+            with open('macytclipvideo.info.json') as json_file: 
+                data = json.load(json_file) 
+                os.rename("macytclipvideo.mov", data["fulltitle"] + ".mov")
+
+            os.remove("macytclipvideo.info.json")
+
+            klaxon("Check your Downloads folder!", "macytclip", "Download completed successfully")
         except:
             klaxon("The copied text was not a valid url!", "macytclip")
 
 
+    # template for the download function:
     # def download_from_clipboard(self, sender):
     #     klaxon("Download started", "macytclip", "")
     #     ydl_opts = {}
