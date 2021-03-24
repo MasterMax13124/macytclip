@@ -5,3 +5,5 @@ dist
 pomodoroapp.py
 clipboardtest.py
 macytclip
+macytclip.app
+.eggs
