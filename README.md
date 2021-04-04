@@ -1,6 +1,8 @@
 # macytclip
 Download videos from the internet with this handy macOS menu bar app!
 
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/44755603/113511526-7d81f500-9560-11eb-93b4-0641384b6261.png">
+
 ## Installation:
 This repository contains a script which will set up a virtual environment on your machine and download all the necessary dependencies to compile the source. To do this you need to download this repository, either as a zip or using git like this:
 
