@@ -80,19 +80,23 @@ class macytclipapp():
         pass
 
     def download_wav_function(self, sender):
+        klaxon("Download started", "macytclip", "")
+        ydl_opts = {'format' : 'bestaudio[ext=m4a]/best','outtmpl': 'macytclipvideo','writeinfojson': 'true', 'merge_output_format': 'wav', 'nocheckcertificate': 'true'}
+        try:
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([clipboard.paste()])
+
+            with open('macytclipvideo.info.json') as json_file: 
+                data = json.load(json_file) 
+                os.rename("macytclipvideo", data["fulltitle"] + ".wav")
+
+            os.remove("macytclipvideo.info.json")
+
+            klaxon("Check your Downloads folder!", "macytclip", "Download completed successfully")
+
+        except:
+            klaxon("The copied text was not a valid url!", "macytclip")
         pass
-
-
-    # template for the download function:
-    # def download_from_clipboard(self, sender):
-    #     klaxon("Download started", "macytclip", "")
-    #     ydl_opts = {}
-    #     try:
-    #         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    #             ydl.download([clipboard.paste()])
-    #         klaxon("Download complete!", "macytclip", "Check your Downloads folder!")
-    #     except:
-    #         klaxon("The copied text was not a valid url!", "macytclip")
 
     def run(self):
         self.app.run()
