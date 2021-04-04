@@ -16,12 +16,12 @@ The script will set up a virtual environment for you and download all the requir
 
 ## Usage:
 
-Currently usage is very limited. First you need to start the app and make sure that the menu icon appears. Then simply copy a link to a youtube video, or any other video source that youtube-dl can download, and then click on the macytclip icon in your menu bar. Click 'Download' and your download will start. Once it's done, you can find your downloaded video file in finder in your Downloads folder.
+To use macytclip, you can either start the app directly in the folder where you compiled it, or copy it to your Applications folder. That way it will show up in Spotlight and Launchpad. Once the app is running, you can find it's icon in the menubar. Simply copy the link to a the video you want to download, then open the macytclip menu by clicking on it's icon in the menubar. Select one of the download options and wait for the notifications confirming your download and then open the Downloads folder in Finder. Here you can find the downloaded file with the same name as the original video. Macytclip can download any media that youtube-dl can download.
 
 ## Thanks to:
 [Youtube-dl](https://github.com/ytdl-org/youtube-dl/), the piece of software that does all of the actual work here
 
-[RUMPS](https://github.com/jaredks/rumps), which makes macOS menu bar apps so easy that even I can make one
+[rumps](https://github.com/jaredks/rumps), which makes macOS menu bar apps so easy that even I can make one
 
 [py2app](https://github.com/ronaldoussoren/py2app/blob/master/LICENSE.txt), which makes it possible to package all this as a standalone Mac app
 
